@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Swag_game extends AppCompatActivity implements View.OnClickListener {
 ArrayList<String> gameArr = new ArrayList<>();
 private Button button_begynd, button_next, button_svar;
-private TextView tekst_svar, tekst_spørgsmål, tekst_konsekvens;
+private TextView tekst_svar, tekst_question, tekst_konsekvens;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,8 @@ private TextView tekst_svar, tekst_spørgsmål, tekst_konsekvens;
         tekst_konsekvens = findViewById(R.id.tekst_konsekvens);
         tekst_konsekvens.setVisibility(View.INVISIBLE);
 
-        tekst_spørgsmål = findViewById(R.id.tekst_spørgsmål);
-        tekst_spørgsmål.setVisibility(View.INVISIBLE);
+        tekst_question = findViewById(R.id.tekst_spørgsmål);
+        tekst_question.setVisibility(View.INVISIBLE);
 
         tekst_svar = findViewById(R.id.tekst_svar);
         tekst_svar.setVisibility(View.INVISIBLE);
@@ -52,8 +52,8 @@ private TextView tekst_svar, tekst_spørgsmål, tekst_konsekvens;
         if(v == button_begynd){
             button_begynd.setVisibility(View.INVISIBLE);
             slag = terning();
-            tekst_spørgsmål.setText("dit spørgsmål er: " + citaterhalv().get(slag));
-            tekst_spørgsmål.setVisibility(View.VISIBLE);
+            tekst_question.setText("dit spørgsmål er: " + citaterhalv().get(slag));
+            tekst_question.setVisibility(View.VISIBLE);
             tekst_svar.setText("svaret er: "+citaterfuld().get(slag));
             button_svar.setVisibility(View.VISIBLE);
             button_next.setVisibility(View.VISIBLE);
@@ -73,7 +73,7 @@ private TextView tekst_svar, tekst_spørgsmål, tekst_konsekvens;
             tekst_svar.setVisibility(View.INVISIBLE);
             tekst_konsekvens.setVisibility(View.INVISIBLE);
             slag = terning();
-            tekst_spørgsmål.setText("Dit spørgsmåll er: "+ citaterhalv().get(slag));
+            tekst_question.setText("Dit spørgsmåll er: "+ citaterhalv().get(slag));
             tekst_svar.setText("Svaret er: " +citaterfuld().get(slag));
             button_svar.setVisibility(View.VISIBLE);
 
@@ -251,9 +251,6 @@ private TextView tekst_svar, tekst_spørgsmål, tekst_konsekvens;
         arr.add(14,"start et fællesskål");
         arr.add(15,"gør noget dumt");
         arr.add(16, "tag en ølbong");
-
-
-
         return arr;
     }
 

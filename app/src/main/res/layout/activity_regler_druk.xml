@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#921818"
-    tools:context=".Regler_citater">
+    android:background="#3F51B5"
+    tools:context=".Regler_druk">
+
 
     <TextView
         android:id="@+id/textView3"
@@ -28,7 +29,7 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="108dp"
         android:layout_marginBottom="93dp"
-        android:text="1. Altid have noget drikke\n2. konsekvensen skal tages!\n3. Svaret skal siges højt\n4. Tryk spil når du har læst og forstået reglerne"
+        android:text="1. Altid have noget drikke\n2. konsekvensen skal tages!\n3. Man skal angive sit navn\n4.Du skal vælge mellem de to muligheder\n5. Tryk spil når du har læst og forstået reglerne"
         android:textColor="#DAD4D4"
         app:layout_constraintBottom_toTopOf="@+id/button_playDruk"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,4 +46,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

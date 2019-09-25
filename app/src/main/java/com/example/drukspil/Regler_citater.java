@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class regler extends AppCompatActivity implements View.OnClickListener {
+public class Regler_citater extends AppCompatActivity implements View.OnClickListener {
 private Button button_play;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regler);
 
-        button_play = findViewById(R.id.button_play);
+        button_play = findViewById(R.id.button_playDruk);
         button_play.setOnClickListener(this);
     }
 
