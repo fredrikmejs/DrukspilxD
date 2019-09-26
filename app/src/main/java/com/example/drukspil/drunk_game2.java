@@ -3,6 +3,7 @@ package com.example.drukspil;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class drunk_game2 extends AppCompatActivity implements View.OnClickListen
 
         button_nextplayer = findViewById(R.id.button__nextPlayer);
         button_nextplayer.setOnClickListener(this);
+        button_nextplayer.setVisibility(View.INVISIBLE);
 
 
         button_konsekvens = findViewById(R.id.button_konsekvens);
@@ -38,16 +40,18 @@ public class drunk_game2 extends AppCompatActivity implements View.OnClickListen
 
         button_no = findViewById(R.id.button_no);
         button_no.setOnClickListener(this);
+        button_no.setVisibility(View.INVISIBLE);
 
 
         button_yes = findViewById(R.id.button_yes);
         button_yes.setOnClickListener(this);
-
+        button_yes.setVisibility(View.INVISIBLE);
 
         textView_konsekvens_udfordring = findViewById(R.id.tekst_konsekvens_udfordring);
-
+        textView_konsekvens_udfordring.setVisibility(View.INVISIBLE);
 
         textView_completed = findViewById(R.id.tekst_challange_completed);
+        textView_completed.setVisibility(View.INVISIBLE);
 
         textView_overskrift = findViewById(R.id.tekst_overskrift2);
 
@@ -58,6 +62,8 @@ public class drunk_game2 extends AppCompatActivity implements View.OnClickListen
     @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
+
+
         if (v == button_no) {
             textView_overskrift.setText("BUND DIN DRIK omgående");
             button_yes.setVisibility(View.INVISIBLE);
@@ -75,6 +81,7 @@ public class drunk_game2 extends AppCompatActivity implements View.OnClickListen
             textView_konsekvens_udfordring.setText("Din udfordring: " +
                     udfordringer().get(terningUdfordring()));
             textView_konsekvens_udfordring.setVisibility(View.VISIBLE);
+            button_nextplayer.setVisibility(View.VISIBLE);
         }
 
         if (v == button_konsekvens) {

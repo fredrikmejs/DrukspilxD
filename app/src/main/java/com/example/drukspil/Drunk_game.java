@@ -30,6 +30,8 @@ int spiller = 0;
         button_start = findViewById(R.id.button_start);
         button_start.setOnClickListener(this);
 
+        tekstView_addedplayers = findViewById(R.id.textView_addedplayer);
+        tekstView_addedplayers.setVisibility(View.INVISIBLE);
 
         textView_overskrift = findViewById(R.id.tekst_overskrift2);
         textView_overskrift.setVisibility(View.INVISIBLE);

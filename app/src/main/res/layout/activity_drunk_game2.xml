@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/tekst_overskrift2"
-        android:layout_width="325dp"
-        android:layout_height="0dp"
+        android:layout_width="361dp"
+        android:layout_height="64dp"
         android:layout_marginTop="43dp"
         android:layout_marginBottom="84dp"
-        android:text="Time to play"
-        android:textSize="24sp"
+        android:text="Time to play \nVælg mellem udfordring og konsekvens"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tekst_konsekvens_udfordring"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
