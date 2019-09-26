@@ -13,13 +13,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class drunk_game2 extends AppCompatActivity implements View.OnClickListener {
+
     Drunk_game drukspil = new Drunk_game();
-    ArrayList<String> namesArr = drukspil.nameArr();
+
+
+    ArrayList<String> namesArr = drukspil.getNamesArr();
 
     Button button_yes, button_no, button_challange, button_konsekvens, button_nextplayer;
     TextView textView_overskrift, textView_konsekvens_udfordring, textView_completed;
     int spiller = 0;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,7 @@ public class drunk_game2 extends AppCompatActivity implements View.OnClickListen
         textView_completed.setVisibility(View.INVISIBLE);
 
         textView_overskrift = findViewById(R.id.tekst_overskrift2);
+        textView_overskrift.setText(namesArr.get(spiller) + " tur vælg konsekvens eller udfordring");
 
 
 

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Drunk_game extends AppCompatActivity implements View.OnClickListener {
-
+ArrayList<String> namesArr = new ArrayList<>();
 Button button_add,button_start;
 TextView textView_overskrift, tekstView_addedplayers;
 EditText editText_addNames;
@@ -48,7 +48,9 @@ int spiller = 0;
         if (v == button_add){
             String name = editText_addNames.getText().toString();
             tekstView_addedplayers.setText(name + " er blevet tilføjet");
-            nameArr().add(name);
+            //namesArr.add(name);
+            namesArr.add(name); //TODO fix
+            tekstView_addedplayers.setVisibility(View.VISIBLE);
 
         }
 
@@ -58,10 +60,7 @@ int spiller = 0;
 
         }
     }
-
-    public ArrayList<String>nameArr(){
-        ArrayList<String> namesArr = new ArrayList<>();
-
+    public ArrayList<String> getNamesArr() {
         return namesArr;
     }
 }
