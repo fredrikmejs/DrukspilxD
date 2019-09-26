@@ -1,25 +1,35 @@
 package com.example.drukspil;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 public class Swag_game extends AppCompatActivity implements View.OnClickListener {
-ArrayList<String> gameArr = new ArrayList<>();
-private Button button_begynd, button_next, button_svar;
+private Button button_begynd, button_next, button_svar, button_back;
 private TextView tekst_svar, tekst_question, tekst_konsekvens;
+ArrayList<String> halvArr = new ArrayList<>();
+ArrayList<String> fuldArr = new ArrayList<>();
+ArrayList<String> konsekvensArr = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swag_game);
+
+        citaterfuld();
+        citaterhalv();
+        konsekvenser();
+
+        button_back = findViewById(R.id.button_back3);
+        button_back.setOnClickListener(this);
 
         button_begynd = findViewById(R.id.button_klar);
         button_begynd.setOnClickListener(this);
@@ -27,7 +37,7 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
 
         button_next= findViewById(R.id.button_next);
         button_next.setOnClickListener(this);
-       button_next.setVisibility(View.INVISIBLE);
+        button_next.setVisibility(View.INVISIBLE);
 
         button_svar = findViewById(R.id.button_svar);
         button_svar.setOnClickListener(this);
@@ -52,9 +62,9 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
         if(v == button_begynd){
             button_begynd.setVisibility(View.INVISIBLE);
             slag = terning();
-            tekst_question.setText("dit spørgsmål er: " + citaterhalv().get(slag));
+            tekst_question.setText("Dit spørgsmål er: " + halvArr.get(slag));
             tekst_question.setVisibility(View.VISIBLE);
-            tekst_svar.setText("svaret er: "+citaterfuld().get(slag));
+            tekst_svar.setText("svaret er: "+fuldArr.get(slag));
             button_svar.setVisibility(View.VISIBLE);
             button_next.setVisibility(View.VISIBLE);
             Log.d("knap", "onClick: trykket");
@@ -62,10 +72,10 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
 
         if (v == button_svar){
             button_svar.setVisibility(View.INVISIBLE);
-            //tekst_svar.setText("Svaret er: "+ citaterfuld().get(slag));
+            tekst_svar.setText("Svaret er: "+ fuldArr.get(slag));
             tekst_svar.setVisibility(View.VISIBLE);
             slag1 = terningKonsekvens();
-            tekst_konsekvens.setText("Din konsekvens er: " + konsekvenser().get(slag1));
+            tekst_konsekvens.setText("Din konsekvens er: " + konsekvensArr.get(slag1));
             tekst_konsekvens.setVisibility(View.VISIBLE);
             Log.d("knap", "onClick: trykket");
         }
@@ -73,11 +83,15 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
             tekst_svar.setVisibility(View.INVISIBLE);
             tekst_konsekvens.setVisibility(View.INVISIBLE);
             slag = terning();
-            tekst_question.setText("Dit spørgsmåll er: "+ citaterhalv().get(slag));
-            tekst_svar.setText("Svaret er: " +citaterfuld().get(slag));
+            tekst_question.setText("Dit spørgsmåll er: "+ halvArr.get(slag));
+            tekst_svar.setText("Svaret er: " +fuldArr.get(slag));
             button_svar.setVisibility(View.VISIBLE);
 
-            Log.d("knap", "onClick: trykket");
+        if (v == button_back){
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+            finish();
+        }
         }
 
     }
@@ -95,163 +109,156 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
 
     public ArrayList<String> citaterfuld(){
 
-        ArrayList<String> arrFuld = new ArrayList<>();
+        fuldArr.add(0,"BYEEN");
+        fuldArr.add(1,"BØV");
+        fuldArr.add(2,"Fedtet Rotten");
+        fuldArr.add(3,"DJ SWAG");
+        fuldArr.add(4,"TYLLE SNART");
+        fuldArr.add(5, "TYLLE");
+        fuldArr.add(6, "HOMO");
+        fuldArr.add(7,"En ristet med det hele");
+        fuldArr.add(8,"UD i DAG? <3");
+        fuldArr.add(9,"ROOMS");
+        fuldArr.add(10,"STOP AFSKY");
+        fuldArr.add(11, "Hånden er tilbage?");
+        fuldArr.add(12, "No <3");
+        fuldArr.add(13, "Nej <3 why (græde tudesmiley)");
+        fuldArr.add(14, "Nope B <3");
+        fuldArr.add(15, "The hands lærling edition");
+        fuldArr.add(16, "I dag");
+        fuldArr.add(17,"Aarbyens");
+        fuldArr.add(18,"Fan luv");
+        fuldArr.add(19, "Lunar way");
+        fuldArr.add(20, "Hvor I <3");
+        fuldArr.add(21, "THOT");
+        fuldArr.add(22, "Løs, loose, løsning");
+        fuldArr.add(23, "Sry jeg ikke tog den,\n er lige i gang med noget nu <3");
+        fuldArr.add(24, "Hey mate <3 kan jeg ikke låne 130kr til i morgen,\n Skal have noget og har pengene igen i morgen <3");
+        fuldArr.add(25, "Nice");
+        fuldArr.add(26,"xD");
+        fuldArr.add(27,"VS på PS");
+        fuldArr.add(28,"Uha <3");
+        fuldArr.add(29, "Tørst");
+        fuldArr.add(30, "Nations");
+        fuldArr.add(31, "Kæp i øret");
+        fuldArr.add(32, "Have en skid på");
+        fuldArr.add(33, "Indens");
+        fuldArr.add(34, "Goodbye");
+        fuldArr.add(35, "Bamse rundt");
+        fuldArr.add(36, "Døj comback");
+        fuldArr.add(37, "Hvad så DRENGEE");
+        fuldArr.add(38, "Homework");
+        fuldArr.add(39,"Maybe i should become a painter");
+        fuldArr.add(40, "Surprise");
+        fuldArr.add(41, "På munden");
+        fuldArr.add(42, "Part 2");
+        fuldArr.add(43, "Hyggeligt");
+        fuldArr.add(44, "You know WHO er are");
+        fuldArr.add(45, "Typisk");
+        fuldArr.add(46, "Typisk Seriøst/Typisk Klassisk");
+        fuldArr.add(47, "So the adventure begins");
+        fuldArr.add(48, "Knap");
+        fuldArr.add(49, "Giv mig 10 min <3");
+        fuldArr.add(50, "Only Vodka");
+        fuldArr.add(51, "I am done");
+        fuldArr.add(52, "ye");
+        fuldArr.add(53,"Hvide bukser");
+        fuldArr.add(54, "Kviklån");
+        fuldArr.add(55, "Ved ikke");
+        fuldArr.add(56, "Holder mig til longs");
+        fuldArr.add(57, "Hugh kan gå hjem");
+        fuldArr.add(58,"Man down");
+        fuldArr.add(59,"Fuld chauffør");
 
-        arrFuld.add(0,"BYEEN");
-        arrFuld.add(1,"BØV");
-        arrFuld.add(2,"fedtet Rotten");
-        arrFuld.add(3,"DJ SWAG");
-        arrFuld.add(4,"TYLLE SNART");
-        arrFuld.add(5, "TYLLE");
-        arrFuld.add(6, "HOMO");
-        arrFuld.add(7,"en ristet med det hele");
-        arrFuld.add(8,"UD i DAG? <3");
-        arrFuld.add(9,"ROOMS");
-        arrFuld.add(10,"STOP AFSKY");
-        arrFuld.add(11, "hånden er tilbage?");
-        arrFuld.add(12, "no <3");
-        arrFuld.add(13, "nej <3 why (græde tudesmiley)");
-        arrFuld.add(14, "nope B <3");
-        arrFuld.add(15, "the hands lærling edition");
-        arrFuld.add(16, "idag");
-        arrFuld.add(17,"Aarbyens");
-        arrFuld.add(18,"fan luv");
-        arrFuld.add(19, "lunar way");
-        arrFuld.add(20, "hvor I <3");
-        arrFuld.add(21, "THOT");
-        arrFuld.add(22, "løs, loose, løsning");
-        arrFuld.add(23, "Sry jeg ikke tog den,\n er lige i gang med noget nu <3");
-        arrFuld.add(24, "Hey mate <3 kan jeg ikke låne 130kr til i morgen,\n Skal have noget og har pengene igen i morgen <3");
-        arrFuld.add(25, "Nice");
-        arrFuld.add(26,"xD");
-        arrFuld.add(27,"VS på PS");
-        arrFuld.add(28,"Uha <3");
-        arrFuld.add(29, "Tørst");
-        arrFuld.add(30, "nations");
-        arrFuld.add(31, "kæp i øret");
-        arrFuld.add(32, "have en skid på");
-        arrFuld.add(33, "indens");
-        arrFuld.add(34, "goodbye");
-        arrFuld.add(35, "bamse rundt");
-        arrFuld.add(36, "Døj comback");
-        arrFuld.add(37, "Hvad så DRENGEE");
-        arrFuld.add(38, "homework");
-        arrFuld.add(39,"Maybe i should become a painter");
-        arrFuld.add(40, "surprise");
-        arrFuld.add(41, "På munden");
-        arrFuld.add(42, "part 2");
-        arrFuld.add(43, "hyggeligt");
-        arrFuld.add(44, "You know WHO er are");
-        arrFuld.add(45, "Typisk");
-        arrFuld.add(46, "Typisk Seriøst/Typisk Klassisk");
-        arrFuld.add(47, "So the adventure begins");
-        arrFuld.add(48, "Knap");
-        arrFuld.add(49, "Giv mig 10 min <3");
-        arrFuld.add(50, "Only Vodka");
-        arrFuld.add(51, "I am done");
-        arrFuld.add(52, "ye");
-        arrFuld.add(53,"hvide bukser");
-        arrFuld.add(54, "kviklån");
-        arrFuld.add(55, "ved ikke");
-        arrFuld.add(56, "holder mig til longs");
-        arrFuld.add(57, "Hugh kan gå hjem");
-        arrFuld.add(58,"man down");
-        arrFuld.add(59,"Fuld chauffør");
-
-
-
-
-        return arrFuld;
+        return fuldArr;
     }
     public ArrayList<String> citaterhalv() {
 
-        ArrayList<String> arrHalv = new ArrayList<>();
+        halvArr.add(0,"BYE__");
+        halvArr.add(1,"BØ_");
+        halvArr.add(2,"_____ Rotten");
+        halvArr.add(3,"DJ ____");
+        halvArr.add(4,"TYL__ ____");
+        halvArr.add(5, "TY___");
+        halvArr.add(6, "H___");
+        halvArr.add(7,"Synonym for ROAST");
+        halvArr.add(8,"__ i ___? <3");
+        halvArr.add(9,"Stue");
+        halvArr.add(10,"STOP _____");
+        halvArr.add(11, "Hvad er tilbage?");
+        halvArr.add(12, "__ <3");
+        halvArr.add(13, "___ __ why ()");
+        halvArr.add(14, "Nope _ __");
+        halvArr.add(15, "Lærling");
+        halvArr.add(16, "Hvornår?");
+        halvArr.add(17,"___byens");
+        halvArr.add(18,"___ luv");
+        halvArr.add(19, "Skod bank");
+        halvArr.add(20, "Hvor _ __");
+        halvArr.add(21, "Trækker vejret");
+        halvArr.add(22, "Må ikke kaldes en sm__");
+        halvArr.add(23, "Er i gang med noget");
+        halvArr.add(24, "130 kr");
+        halvArr.add(25, "Klunker");
+        halvArr.add(26,"x_");
+        halvArr.add(27,"Hvor man finder VS");
+        halvArr.add(28,"Når man skal på tørst");
+        halvArr.add(29, "Tø___");
+        halvArr.add(30, "Mange på et sted");
+        halvArr.add(31, "Noget i øret");
+        halvArr.add(32, "Skal være stiv");
+        halvArr.add(33, "Før noget");
+        halvArr.add(34, "Afsked");
+        halvArr.add(35, "Bamse _____");
+        halvArr.add(36, "Et stærkt comeback");
+        halvArr.add(37, "Når man hilser på drengene");
+        halvArr.add(38, "H__e__rk");
+        halvArr.add(39,"Maler");
+        halvArr.add(40, "Overrasket");
+        halvArr.add(41, "Når man dummer sig");
+        halvArr.add(42, "Part _");
+        halvArr.add(43, "Alek");
+        halvArr.add(44, "You know ___ __ are");
+        halvArr.add(45, "_yp___");
+        halvArr.add(46, "Meget typisk");
+        halvArr.add(47, "Når en bytur starter");
+        halvArr.add(48, "Klar til at trykke på...");
+        halvArr.add(49, "Giv mig __ min __");
+        halvArr.add(50, "Russer");
+        halvArr.add(51, "I __ __ne");
+        halvArr.add(52, "Ja på swag sprog");
+        halvArr.add(53,"God farve på bukser");
+        halvArr.add(54, "Kv___ån");
+        halvArr.add(55, "__d _kke");
+        halvArr.add(56, "Vodka, gin, rom, tequila");
+        halvArr.add(57, "Hugh ___ __ ____");
+        halvArr.add(58,"Man ____");
+        halvArr.add(59,"__ld c_auff__");
 
-        arrHalv.add(0,"BYE__");
-        arrHalv.add(1,"BØ_");
-        arrHalv.add(2,"_____ Rotten");
-        arrHalv.add(3,"DJ ____");
-        arrHalv.add(4,"TYL__ ____");
-        arrHalv.add(5, "TY___");
-        arrHalv.add(6, "H___");
-        arrHalv.add(7,"Synonym for ROAST");
-        arrHalv.add(8,"__ i ___? <3");
-        arrHalv.add(9,"stue");
-        arrHalv.add(10,"STOP _____");
-        arrHalv.add(11, "Hvad er tilbage?");
-        arrHalv.add(12, "__ <3");
-        arrHalv.add(13, "___ __ why ()");
-        arrHalv.add(14, "nope _ __");
-        arrHalv.add(15, "lærling");
-        arrHalv.add(16, "hvornår?");
-        arrHalv.add(17,"___byens");
-        arrHalv.add(18,"___ luv");
-        arrHalv.add(19, "skod bank");
-        arrHalv.add(20, "hvor _ __");
-        arrHalv.add(21, "trækker vejret");
-        arrHalv.add(22, "må ikke kaldes en sm__");
-        arrHalv.add(23, "er i gang med noget");
-        arrHalv.add(24, "130 kr");
-        arrHalv.add(25, "klunker");
-        arrHalv.add(26,"x_");
-        arrHalv.add(27,"hvor man finder VS");
-        arrHalv.add(28,"Når man skal på tørst");
-        arrHalv.add(29, "Tø___");
-        arrHalv.add(30, "mange på et sted");
-        arrHalv.add(31, "noget i øret");
-        arrHalv.add(32, "skal være stiv");
-        arrHalv.add(33, "før noget");
-        arrHalv.add(34, "afsked");
-        arrHalv.add(35, "bamse _____");
-        arrHalv.add(36, "et stærkt comeback");
-        arrHalv.add(37, "Når man hilser på drengene");
-        arrHalv.add(38, "h__e__rk");
-        arrHalv.add(39,"maler");
-        arrHalv.add(40, "overrasket");
-        arrHalv.add(41, "når man dummer sig");
-        arrHalv.add(42, "part _");
-        arrHalv.add(43, "Alek");
-        arrHalv.add(44, "You know ___ __ are");
-        arrHalv.add(45, "_yp___");
-        arrHalv.add(46, "meget typisk");
-        arrHalv.add(47, "når en bytur starter");
-        arrHalv.add(48, "klar til at trykke på...");
-        arrHalv.add(49, "giv mig __ min __");
-        arrHalv.add(50, "Russer");
-        arrHalv.add(51, "I __ __ne");
-        arrHalv.add(52, "ja på swag sprog");
-        arrHalv.add(53,"god farve på bukser");
-        arrHalv.add(54, "kv___ån");
-        arrHalv.add(55, "__d _ke");
-        arrHalv.add(56, "vodka, gin, rom, tequila");
-        arrHalv.add(57, "Hugh ___ __ ____");
-        arrHalv.add(58,"man ____");
-        arrHalv.add(59,"__ld __auff__");
-        return arrHalv;
+        return halvArr;
     }
 
     private ArrayList<String> konsekvenser(){
 
-        ArrayList<String> arr = new ArrayList<>();
+        konsekvensArr.add(0,"På munden");
+        konsekvensArr.add(1,"En bunder");
+        konsekvensArr.add(2,"Et shot");
+        konsekvensArr.add(3,"En tår");
+        konsekvensArr.add(4,"Sig 'i dag' konstant\ni 5 min eller bund");
+        konsekvensArr.add(5, "Snak i Swag citater");
+        konsekvensArr.add(6,"Tag et shot og\nlæg på dig på gulvet");
+        konsekvensArr.add(7, "Drik 7 drinks på rooms");
+        konsekvensArr.add(8, "Skriv til swag");
+        konsekvensArr.add(9, "Tag på VS med PS");
+        konsekvensArr.add(10, "Et heart attack");
+        konsekvensArr.add(11, "Råb som en\nsindsyg i byens");
+        konsekvensArr.add(12,"Sig til en thot du har hør på");
+        konsekvensArr.add(13, "Køb en drink til\nen thot i byens");
+        konsekvensArr.add(14,"Start et fællesskål");
+        konsekvensArr.add(15,"Gør noget dumt i byens");
+        konsekvensArr.add(16, "Tag en ølbong");
 
-        arr.add(0,"På munden");
-        arr.add(1,"En bunder");
-        arr.add(2,"Et shot");
-        arr.add(3,"En tår");
-        arr.add(4,"Sig 'i dag' konstant\ni 5 min eller bund");
-        arr.add(5, "Snak i Swag citater");
-        arr.add(6,"Tag et shot og\nlæg på dig på gulvet");
-        arr.add(7, "Drik 7 drinks på rooms");
-        arr.add(8, "Skriv til swag");
-        arr.add(9, "Tag på VS med PS");
-        arr.add(10, "Et heart attack");
-        arr.add(11, "råb som en\nsindsyg i byens");
-        arr.add(12,"sig til en thot du har hør på");
-        arr.add(13, "Køb en drink til\nen thot i byens");
-        arr.add(14,"start et fællesskål");
-        arr.add(15,"gør noget dumt");
-        arr.add(16, "tag en ølbong");
-        return arr;
+        return konsekvensArr;
     }
 
 }

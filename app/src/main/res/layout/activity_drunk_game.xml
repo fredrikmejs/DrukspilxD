@@ -7,69 +7,120 @@
     android:background="#3F51B5"
     tools:context=".Drunk_game">
 
+
     <TextView
         android:id="@+id/tekst_overskrift2"
-        android:layout_width="277dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="8dp"
-        android:text="Tilføj de deltagende spillere"
+        android:layout_width="362dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="12dp"
+        android:text="Time to play \nVælg mellem udfordring og konsekvens"
+        android:textColor="#D86F2626"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/edittext_addnames"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
-
-    <EditText
-        android:id="@+id/edittext_addnames"
-        android:layout_width="282dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Skriv navnene her og tryk tilføj"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/button_add"
-        app:layout_constraintEnd_toStartOf="@+id/button_add"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="424dp"
-        android:text="tilføj"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edittext_addnames" />
-
-    <Button
-        android:id="@+id/button_start"
-        android:layout_width="134dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="472dp"
-        android:text="Start spillet"
-        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button_challange1"
+        android:layout_width="160dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="40dp"
+        android:text="udfordring/lege"
+        app:layout_constraintEnd_toStartOf="@+id/button_konsekvens"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_konsekvens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="57dp"
+        android:text="konsekvens"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/textView_addedplayer"
-        android:layout_width="232dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="143dp"
-        android:text="tilføjet spiller"
+        android:id="@+id/tekst_konsekvens_udfordring"
+        android:layout_width="384dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="63dp"
+        android:text="udfordring/konsekvens"
+        android:textColor="#D86F2626"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tekst_overskrift2" />
+
+    <TextView
+        android:id="@+id/tekst_challange_completed"
+        android:layout_width="235dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        android:text="Er udfordringen klaret?"
+        android:textColor="#D86F2626"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_addnames" />
+        app:layout_constraintTop_toBottomOf="@+id/tekst_konsekvens_udfordring" />
+
+    <Button
+        android:id="@+id/button_yes"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="276dp"
+        android:text="ja"
+        app:layout_constraintBottom_toBottomOf="@+id/button_no"
+        app:layout_constraintEnd_toStartOf="@+id/button_no"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_no"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="404dp"
+        android:layout_marginEnd="76dp"
+        android:text="nej"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button__nextPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="72dp"
+        android:text="Giv turen videre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toEndOf="@+id/button_back" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="74dp"
+        android:text="afslut spil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

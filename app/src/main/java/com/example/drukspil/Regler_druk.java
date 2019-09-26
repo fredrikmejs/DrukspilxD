@@ -1,19 +1,19 @@
 package com.example.drukspil;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Regler_druk extends AppCompatActivity implements View.OnClickListener {
-Button button_startGame;
-TextView tekst_regler;
+private Button button_startGame, button_back;
+private TextView tekst_regler;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +30,18 @@ TextView tekst_regler;
                 "\n5. Hvis udfordingen ikke gennemføres skal der bundes"+
                 "\n6. Tryk spil når du har læst og forstået reglerne");
 
-
-
+        button_back = findViewById(R.id.button_back1);
+        button_back.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
 
+        if (view == button_back){
+            Intent intent = new Intent();
+            setResult(RESULT_OK, intent);
+            finish();
+        }
         if (view == button_startGame){
             Intent myIntent = new Intent(view.getContext(), Drunk_game.class);
             startActivityForResult(myIntent, 0);
