@@ -18,7 +18,7 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
 ArrayList<String> halvArr = new ArrayList<>();
 ArrayList<String> fuldArr = new ArrayList<>();
 ArrayList<String> konsekvensArr = new ArrayList<>();
-
+private int slag_spørgsmål = 0, slag_konsekvens = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,14 +57,14 @@ ArrayList<String> konsekvensArr = new ArrayList<>();
     @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
-        int slag = 0;
-        int slag1 = 0;
+
+
         if(v == button_begynd){
             button_begynd.setVisibility(View.INVISIBLE);
-            slag = terning();
-            tekst_question.setText("Dit spørgsmål er: " + halvArr.get(slag));
+            slag_spørgsmål = terning();
+            tekst_question.setText("Dit spørgsmål er: " + halvArr.get(slag_spørgsmål));
             tekst_question.setVisibility(View.VISIBLE);
-            tekst_svar.setText("svaret er: "+fuldArr.get(slag));
+            tekst_svar.setText("svaret er: "+fuldArr.get(slag_spørgsmål));
             button_svar.setVisibility(View.VISIBLE);
             button_next.setVisibility(View.VISIBLE);
             Log.d("knap", "onClick: trykket");
@@ -72,19 +72,19 @@ ArrayList<String> konsekvensArr = new ArrayList<>();
 
         if (v == button_svar){
             button_svar.setVisibility(View.INVISIBLE);
-            tekst_svar.setText("Svaret er: "+ fuldArr.get(slag));
+            tekst_svar.setText("Svaret er: "+ fuldArr.get(slag_spørgsmål));
             tekst_svar.setVisibility(View.VISIBLE);
-            slag1 = terningKonsekvens();
-            tekst_konsekvens.setText("Din konsekvens er: " + konsekvensArr.get(slag1));
+            slag_konsekvens = terningKonsekvens();
+            tekst_konsekvens.setText("Din konsekvens er: " + konsekvensArr.get(slag_konsekvens));
             tekst_konsekvens.setVisibility(View.VISIBLE);
             Log.d("knap", "onClick: trykket");
         }
         if (v == button_next){
             tekst_svar.setVisibility(View.INVISIBLE);
             tekst_konsekvens.setVisibility(View.INVISIBLE);
-            slag = terning();
-            tekst_question.setText("Dit spørgsmåll er: "+ halvArr.get(slag));
-            tekst_svar.setText("Svaret er: " +fuldArr.get(slag));
+            slag_spørgsmål = terning();
+            tekst_question.setText("Dit spørgsmål er: "+ halvArr.get(slag_spørgsmål));
+            tekst_svar.setText("Svaret er: " +fuldArr.get(slag_spørgsmål));
             button_svar.setVisibility(View.VISIBLE);
 
         if (v == button_back){
@@ -97,19 +97,19 @@ ArrayList<String> konsekvensArr = new ArrayList<>();
     }
 
     private int terningKonsekvens(){
-        int terning = (int) (Math.random() * konsekvenser().size());
-        return terning -1;
+        int terning = (int) (Math.random()*konsekvensArr.size());
+        return terning;
     }
 
     public int terning(){
-        int terning = (int) (Math.random()*citaterfuld().size());
+        int terning = (int) (Math.random()*fuldArr.size());
 
-        return terning -1;
+        return terning;
     }
 
     public ArrayList<String> citaterfuld(){
 
-        fuldArr.add(0,"BYEEN");
+        fuldArr.add(0,"BYENS");
         fuldArr.add(1,"BØV");
         fuldArr.add(2,"Fedtet Rotten");
         fuldArr.add(3,"DJ SWAG");
