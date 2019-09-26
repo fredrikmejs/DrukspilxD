@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".drunk_game2">
+
+
+    <TextView
+        android:id="@+id/tekst_overskrift2"
+        android:layout_width="325dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginBottom="84dp"
+        android:text="Time to play"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tekst_konsekvens_udfordring"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_challange"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="43dp"
+        android:text="udfordring/lege"
+        app:layout_constraintBottom_toTopOf="@+id/button_yes"
+        app:layout_constraintEnd_toStartOf="@+id/button_konsekvens"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_konsekvens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="47dp"
+        android:text="konsekvens"
+        app:layout_constraintBottom_toTopOf="@+id/button_no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_challange"
+        app:layout_constraintTop_toBottomOf="@+id/tekst_challange_completed" />
+
+    <TextView
+        android:id="@+id/tekst_konsekvens_udfordring"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="24dp"
+        android:text="udfordring/konsekvens"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tekst_challange_completed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tekst_overskrift2" />
+
+    <TextView
+        android:id="@+id/tekst_challange_completed"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="7dp"
+        android:text="Er udfordringen klaret?"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_konsekvens"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tekst_konsekvens_udfordring" />
+
+    <Button
+        android:id="@+id/button_yes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="292dp"
+        android:text="ja"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_challange" />
+
+    <Button
+        android:id="@+id/button_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="185dp"
+        android:text="nej"
+        app:layout_constraintBottom_toTopOf="@+id/button__nextPlayer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_yes"
+        app:layout_constraintTop_toBottomOf="@+id/button_konsekvens" />
+
+    <Button
+        android:id="@+id/button__nextPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="59dp"
+        android:text="Giv turen videre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_no" />
+</androidx.constraintlayout.widget.ConstraintLayout>

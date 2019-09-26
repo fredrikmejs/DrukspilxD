@@ -84,13 +84,13 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
 
     private int terningKonsekvens(){
         int terning = (int) (Math.random() * konsekvenser().size());
-        return terning;
+        return terning -1;
     }
 
     public int terning(){
         int terning = (int) (Math.random()*citaterfuld().size());
 
-        return terning;
+        return terning -1;
     }
 
     public ArrayList<String> citaterfuld(){

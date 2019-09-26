@@ -3,6 +3,7 @@ package com.example.drukspil;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +13,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Drunk_game extends AppCompatActivity implements View.OnClickListener {
-ArrayList<String> namesArr = new ArrayList<>();
-Button button_yes, button_no, button_add, button_challange, button_konsekvens, button_start, button_nextplayer;
-TextView textView_overskrift, textView_konsekvens_udfordring, textView_completed;
+
+Button button_add,button_start;
+TextView textView_overskrift, tekstView_addedplayers;
 EditText editText_addNames;
 int spiller = 0;
 
@@ -26,36 +27,11 @@ int spiller = 0;
         button_add = findViewById(R.id.button_add);
         button_add.setOnClickListener(this);
 
-        button_challange = findViewById(R.id.button_challange);
-        button_challange.setOnClickListener(this);
-        button_challange.setVisibility(View.INVISIBLE);
-
-        button_nextplayer = findViewById(R.id.button__nextPlayer);
-        button_nextplayer.setOnClickListener(this);
-        button_nextplayer.setVisibility(View.INVISIBLE);
-
-        button_konsekvens = findViewById(R.id.button_konsekvens);
-        button_konsekvens.setOnClickListener(this);
-        button_konsekvens.setVisibility(View.INVISIBLE);
-
-        button_no = findViewById(R.id.button_no);
-        button_no.setOnClickListener(this);
-        button_no.setVisibility(View.INVISIBLE);
-
         button_start = findViewById(R.id.button_start);
         button_start.setOnClickListener(this);
 
-        button_yes = findViewById(R.id.button_yes);
-        button_yes.setOnClickListener(this);
-        button_yes.setVisibility(View.INVISIBLE);
 
-        textView_konsekvens_udfordring = findViewById(R.id.tekst_konsekvens_udfordring);
-        textView_konsekvens_udfordring.setVisibility(View.INVISIBLE);
-
-        textView_completed = findViewById(R.id.tekst_challange_completed);
-        textView_completed.setVisibility(View.INVISIBLE);
-
-        textView_overskrift = findViewById(R.id.tekst_overskrift);
+        textView_overskrift = findViewById(R.id.tekst_overskrift2);
         textView_overskrift.setVisibility(View.INVISIBLE);
 
         editText_addNames = findViewById(R.id.edittext_addnames);
@@ -66,100 +42,24 @@ int spiller = 0;
     @Override
     public void onClick(View v) {
 
-        if (v == button_no){
-            textView_overskrift.setText("BUND DIN DRIK omgående");
-            button_yes.setVisibility(View.INVISIBLE);
-        }
 
         if (v == button_add){
             String name = editText_addNames.getText().toString();
-            namesArr.add(name);
-            textView_completed.setText("Spilleren: " + editText_addNames.getText().toString() + " er tilføjet" );
-            textView_completed.setVisibility(View.VISIBLE);
-        }
-
-        if (v == button_challange){
-            textView_completed.setVisibility(View.VISIBLE);
-            textView_completed.setText("Er udfordringen klaret?");
-            button_yes.setVisibility(View.VISIBLE);
-            button_no.setVisibility(View.VISIBLE);
-            button_konsekvens.setVisibility(View.INVISIBLE);
-            button_challange.setVisibility(View.INVISIBLE);
-            textView_konsekvens_udfordring.setText("Din udfordring: "+
-                    udfordringer().get(terningUdfordring()));
-            textView_konsekvens_udfordring.setVisibility(View.VISIBLE);
-        }
-
-        if (v == button_konsekvens){
-            textView_konsekvens_udfordring.setText("Din konsekvens: "+
-                    konsekvenser().get(terningKonsekvens()));
-            button_nextplayer.setVisibility(View.VISIBLE);
+            tekstView_addedplayers.setText(name + " er blevet tilføjet");
+            nameArr().add(name);
 
         }
 
         if (v == button_start){
-            textView_overskrift.setText(namesArr.get(spiller)+ " tur vælg konsekvens eller udfordring!");
-            button_start.setVisibility(View.INVISIBLE);
-            button_add.setVisibility(View.INVISIBLE);
-            editText_addNames.setVisibility(View.INVISIBLE);
-            button_konsekvens.setVisibility(View.VISIBLE);
-            button_challange.setVisibility(View.VISIBLE);
-            textView_completed.setVisibility(View.INVISIBLE);
+            Intent myIntent = new Intent(v.getContext(), drunk_game2.class);
+            startActivityForResult(myIntent, 0);
 
         }
-
-        if (v == button_nextplayer || v == button_yes){
-            if (spiller == namesArr.size()) {
-                spiller = 0;
-            }else {
-                spiller++;
-            }
-            textView_overskrift.setText(namesArr.get(spiller)+" tur vælg konsekvens eller udfordring");
-            button_challange.setVisibility(View.VISIBLE);
-            button_konsekvens.setVisibility(View.VISIBLE);
-        }
     }
 
-    private int terningUdfordring(){
+    public ArrayList<String>nameArr(){
+        ArrayList<String> namesArr = new ArrayList<>();
 
-        int terning = (int) (Math.random()*udfordringer().size());
-
-        return terning;
-    }
-
-    private int terningKonsekvens(){
-
-        int terning = (int) (Math.random()*konsekvenser().size());
-
-        return terning;
-    }
-
-
-    private ArrayList<String>udfordringer(){
-        ArrayList<String> arr = new ArrayList<>();
-
-        arr.add(0,"Find på et 'jeg har aldrig spørgsmål',\nhvor mindst 3 drikker.");
-        arr.add(1, "fordel 4 tåre");
-
-        return arr;
-    }
-
-    private ArrayList<String>konsekvenser(){
-        ArrayList<String>arr = new ArrayList<>();
-
-        arr.add(0,"På munden");
-        arr.add(1,"En bunder");
-        arr.add(2,"Et shot");
-        arr.add(3,"En tår");
-        arr.add(4,"Del en bunder med en");
-        arr.add(5, "tag 2 shots");
-        arr.add(6,"Tag et shot og \nlæg på dig på gulvet");
-        arr.add(7,"Bund en øl");
-        arr.add(8,"Drik en mejs blandingsforhold drik");
-        arr.add(10, "Et heart attack\n(ølbong med 2 øl)");
-        arr.add(11, "Giv en drink i byens");
-        arr.add(12,"start et fællesskål");
-        arr.add(13, "tag en ølbong");
-        return arr;
+        return namesArr;
     }
 }
