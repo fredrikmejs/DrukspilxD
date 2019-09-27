@@ -25,10 +25,9 @@ private TextView tekst_regler;
         tekst_regler = findViewById(R.id.tekst_regler1);
         tekst_regler.setText("1. Altid have noget drikke" +
                 "\n2. konsekvensen skal tages!" +
-                "\n3. Man skal angive sit navn" +
-                "\n4. Du skal vælge mellem de to muligheder" +
-                "\n5. Hvis udfordingen ikke gennemføres skal der bundes"+
-                "\n6. Tryk spil når du har læst og forstået reglerne");
+                "\n3. Du skal vælge mellem de to muligheder" +
+                "\n4. Hvis udfordingen ikke gennemføres skal der bundes"+
+                "\n5. Tryk spil når du har læst og forstået reglerne");
 
         button_back = findViewById(R.id.button_back1);
         button_back.setOnClickListener(this);

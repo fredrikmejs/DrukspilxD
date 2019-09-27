@@ -18,6 +18,7 @@ private TextView tekst_svar, tekst_question, tekst_konsekvens;
 ArrayList<String> halvArr = new ArrayList<>();
 ArrayList<String> fuldArr = new ArrayList<>();
 ArrayList<String> konsekvensArr = new ArrayList<>();
+
 private int slag_spørgsmål = 0, slag_konsekvens = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,6 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
 
         button_begynd = findViewById(R.id.button_klar);
         button_begynd.setOnClickListener(this);
-
 
         button_next= findViewById(R.id.button_next);
         button_next.setOnClickListener(this);
@@ -154,7 +154,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         fuldArr.add(45, "Typisk");
         fuldArr.add(46, "Typisk Seriøst/Typisk Klassisk");
         fuldArr.add(47, "So the adventure begins");
-        fuldArr.add(48, "Knap");
+        fuldArr.add(48, "En Knap");
         fuldArr.add(49, "Giv mig 10 min <3");
         fuldArr.add(50, "Only Vodka");
         fuldArr.add(51, "I am done");
@@ -167,6 +167,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         fuldArr.add(58,"Man down");
         fuldArr.add(59,"Fuld chauffør");
         fuldArr.add(60,"Bestil det til i aften easy");
+        fuldArr.add(61,"Alek");
 
     }
 
@@ -215,12 +216,12 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         halvArr.add(40, "Overrasket");
         halvArr.add(41, "Når man dummer sig");
         halvArr.add(42, "Part _");
-        halvArr.add(43, "Alek");
+        halvArr.add(43, "Alek's strømper");
         halvArr.add(44, "You know ___ __ are");
         halvArr.add(45, "_yp___");
         halvArr.add(46, "Meget typisk");
         halvArr.add(47, "Når en bytur starter");
-        halvArr.add(48, "Klar til at trykke på...");
+        halvArr.add(48, "Klar til at trykke på en...");
         halvArr.add(49, "Giv mig __ min __");
         halvArr.add(50, "Russer");
         halvArr.add(51, "I __ __ne");
@@ -233,6 +234,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         halvArr.add(58,"Man ____");
         halvArr.add(59,"__ld c_auff__");
         halvArr.add(60,"Bestil ___ ti_ _ af___ __sy");
+        halvArr.add(61,"Kongen små sure");
 
     }
 private int terningTåre(){

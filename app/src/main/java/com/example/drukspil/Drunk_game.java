@@ -54,7 +54,6 @@ public class Drunk_game extends AppCompatActivity implements View.OnClickListene
         textView_completed.setVisibility(View.INVISIBLE);
 
         textView_overskrift = findViewById(R.id.tekst_overskrift2);
-
         textView_overskrift.setText("Vælg mellem konsekvens eller udfordring");
 
     }
@@ -70,7 +69,7 @@ public class Drunk_game extends AppCompatActivity implements View.OnClickListene
         }
 
         if (v == button_no) {
-            textView_overskrift.setText("BUND DIN DRIK omgående");
+            textView_overskrift.setText("BUND DIN DRINK OMRÅENDE");
             button_yes.setVisibility(View.INVISIBLE);
             button_nextplayer.setVisibility(View.VISIBLE);
         }
@@ -102,7 +101,6 @@ public class Drunk_game extends AppCompatActivity implements View.OnClickListene
             button_yes.setVisibility(View.INVISIBLE);
             button_no.setVisibility(View.INVISIBLE);
             button_nextplayer.setVisibility(View.INVISIBLE);
-
         }
     }
 
@@ -152,11 +150,12 @@ public class Drunk_game extends AppCompatActivity implements View.OnClickListene
         arrKonsekvens.add(4, "Tag 2 shots");
         arrKonsekvens.add(5,"Tag et shot og \nlæg på dig på gulvet");
         arrKonsekvens.add(6,"Bund en øl");
-        arrKonsekvens.add(7,"Drik en mejs blandingsforhold drik");
+        arrKonsekvens.add(7,"Drik en Mejs blandingsforhold drik");
         arrKonsekvens.add(8, "Giv en drink i byens");
         arrKonsekvens.add(9,"Start et fællesskål");
         arrKonsekvens.add(10, "Drik"+terningTåre() + "tåre");
         arrKonsekvens.add(11, "Drik når personen ved siden af dig drikker");
-
+        arrKonsekvens.add(12, "Held et shot op til alle");
+        arrKonsekvens.add(13,"Lad folk bestemme din konsekvens");
     }
 }

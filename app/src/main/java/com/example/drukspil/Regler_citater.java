@@ -26,7 +26,7 @@ private TextView tekst_regler;
 
         tekst_regler = findViewById(R.id.tekst_regler1);
         tekst_regler.setText("1. Altid have noget drikke" +
-                "\n2. konsekvensen skal tages!" +
+                "\n2. Konsekvensen skal tages!" +
                 "\n3. Svaret skal siges højt" +
                 "\n4. Tryk spil når du har læst og forstået reglerne" +
                 "\n5. Nogle konsekvenser gælder ikke folk med kærester, \nde skal derfor tage en bunder.");
