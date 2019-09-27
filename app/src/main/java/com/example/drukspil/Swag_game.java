@@ -166,6 +166,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         fuldArr.add(57, "Hugh kan gå hjem");
         fuldArr.add(58,"Man down");
         fuldArr.add(59,"Fuld chauffør");
+        fuldArr.add(60,"Bestil det til i aften easy");
 
     }
 
@@ -231,6 +232,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         halvArr.add(57, "Hugh ___ __ ____");
         halvArr.add(58,"Man ____");
         halvArr.add(59,"__ld c_auff__");
+        halvArr.add(60,"Bestil ___ ti_ _ af___ __sy");
 
     }
 private int terningTåre(){
