@@ -58,7 +58,6 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
     @Override
     public void onClick(View v) {
 
-
         if(v == button_begynd){
             button_begynd.setVisibility(View.INVISIBLE);
             slag_spørgsmål = terning();
@@ -79,22 +78,20 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
             tekst_konsekvens.setVisibility(View.VISIBLE);
             Log.d("knap", "onClick: trykket");
         }
-        if (v == button_next){
+        if (v == button_next) {
             tekst_svar.setVisibility(View.INVISIBLE);
             tekst_konsekvens.setVisibility(View.INVISIBLE);
             slag_spørgsmål = terning();
-            tekst_question.setText("Dit spørgsmål er: "+ halvArr.get(slag_spørgsmål));
-            tekst_svar.setText("Svaret er: " +fuldArr.get(slag_spørgsmål));
+            tekst_question.setText("Dit spørgsmål er: " + halvArr.get(slag_spørgsmål));
+            tekst_svar.setText("Svaret er: " + fuldArr.get(slag_spørgsmål));
             button_svar.setVisibility(View.VISIBLE);
-
+        }
         if (v == button_back){
-            Intent intent = new Intent();
-            setResult(RESULT_OK, intent);
-            finish();
+                Intent intent = new Intent();
+                setResult(RESULT_OK, intent);
+                finish();
+            }
         }
-        }
-
-    }
 
     private int terningKonsekvens(){
         int terning = (int) (Math.random()*konsekvensArr.size());
@@ -107,7 +104,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         return terning;
     }
 
-    public ArrayList<String> citaterfuld(){
+    public void citaterfuld(){
 
         fuldArr.add(0,"BYENS");
         fuldArr.add(1,"BØV");
@@ -170,9 +167,9 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         fuldArr.add(58,"Man down");
         fuldArr.add(59,"Fuld chauffør");
 
-        return fuldArr;
     }
-    public ArrayList<String> citaterhalv() {
+
+    public void citaterhalv() {
 
         halvArr.add(0,"BYE__");
         halvArr.add(1,"BØ_");
@@ -235,10 +232,12 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         halvArr.add(58,"Man ____");
         halvArr.add(59,"__ld c_auff__");
 
-        return halvArr;
     }
-
-    private ArrayList<String> konsekvenser(){
+private int terningTåre(){
+        int tåre = (int) Math.random()*6;
+        return tåre;
+}
+    private void konsekvenser(){
 
         konsekvensArr.add(0,"På munden");
         konsekvensArr.add(1,"En bunder");
@@ -257,8 +256,7 @@ private int slag_spørgsmål = 0, slag_konsekvens = 0;
         konsekvensArr.add(14,"Start et fællesskål");
         konsekvensArr.add(15,"Gør noget dumt i byens");
         konsekvensArr.add(16, "Tag en ølbong");
+        konsekvensArr.add(17,"Drik"+ terningTåre() + "tåre");
 
-        return konsekvensArr;
     }
-
 }
